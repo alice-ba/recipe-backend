@@ -17,10 +17,31 @@ public class UnitOfMeasure {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String uom;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "element")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "unitOfMeasure")
     private Set<Element> element = new HashSet<>();;
-    
-    
 
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUom() {
+        return uom;
+    }
+
+    public void setUom(String uom) {
+        this.uom = uom;
+    }
+
+    public Set<Element> getElement() {
+        return element;
+    }
+
+    public void setElement(Set<Element> element) {
+        this.element = element;
+    }
 }

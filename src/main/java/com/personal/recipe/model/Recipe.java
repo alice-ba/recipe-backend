@@ -21,7 +21,7 @@ public class Recipe {
     private Integer serving;
     
     @Enumerated(value = EnumType.STRING)
-    private Integer rating;
+    private Rating rating;
     
     @Lob
     private String description;
@@ -42,5 +42,91 @@ public class Recipe {
     private Set<Category> categories = new HashSet<>();
 
 
+    public Long getRecipe_id() {
+        return recipe_id;
+    }
 
+    public void setRecipe_id(Long recipe_id) {
+        this.recipe_id = recipe_id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public Duration getPrepTime() {
+        return prepTime;
+    }
+
+    public void setPrepTime(Duration prepTime) {
+        this.prepTime = prepTime;
+    }
+
+    public Duration getCookTime() {
+        return cookTime;
+    }
+
+    public void setCookTime(Duration cookTime) {
+        this.cookTime = cookTime;
+    }
+
+    public Integer getServing() {
+        return serving;
+    }
+
+    public void setServing(Integer serving) {
+        this.serving = serving;
+    }
+
+    public Rating  getRating() {
+        return rating;
+    }
+
+    public void setRating(Rating rating) {
+        this.rating = rating;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Set<Element> getElements() {
+        return elements;
+    }
+
+    public void setElements(Set<Element> elements) {
+        this.elements = elements;
+    }
+
+    public Set<Step> getSteps() {
+        return steps;
+    }
+
+    public void setSteps(Set<Step> steps) {
+        this.steps = steps;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
+    }
 }
