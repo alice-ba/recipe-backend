@@ -4,9 +4,9 @@ spring:
 ---
 
 spring:
-	profiles: development
+  profiles: development
 
 ---
 
 spring:
-	profiles: production
+  profiles: production
