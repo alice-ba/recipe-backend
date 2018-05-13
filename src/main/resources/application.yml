@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: production
+  h2:
+    console:
+      enabled: true
+---
+
+spring:
+  profiles: development
+
+---
+
+spring:
+  profiles: production
