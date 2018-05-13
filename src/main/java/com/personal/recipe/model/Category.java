@@ -7,18 +7,18 @@ import java.util.Set;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long category_id;
     private String name;
 
     @ManyToMany(mappedBy = "categories")
     private Set<Recipe> recipes;
 
-    public Long getId() {
-        return id;
+    public Long getCategoryId() {
+        return category_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCategoryId(Long category_id) {
+        this.category_id = category_id;
     }
 
     public String getName() {
