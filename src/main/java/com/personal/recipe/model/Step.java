@@ -1,5 +1,7 @@
 package com.personal.recipe.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,7 @@ public class Step {
 	private Integer number;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Recipe recipe;
 
 	public Long getId() {

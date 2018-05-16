@@ -1,5 +1,7 @@
 package com.personal.recipe.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -19,6 +21,7 @@ public class Course {
     private String name;
 
     @OneToMany(mappedBy = "course")
+    @JsonIgnore
     private Set<Recipe> recipes;
 	
     public Long getId() {

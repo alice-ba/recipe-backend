@@ -1,5 +1,7 @@
 package com.personal.recipe.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,6 +15,7 @@ public class Ingredient {
 	private String name;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "ingredient")
+	@JsonIgnore
     private Set<Element> elements= new HashSet<>();
 
 	public Long getId() {

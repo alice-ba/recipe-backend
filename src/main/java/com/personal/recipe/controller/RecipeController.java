@@ -26,9 +26,9 @@ public class RecipeController {
         return recipeRepository.findAll();
     }
 
-    /*@GetMapping(path = "/{id}")
+    @GetMapping(path = "/{id}")
     public Optional<Recipe> getRecipe(@PathVariable Long id) {
         return recipeRepository.findById(id);
-    }*/
+    }
 
 }

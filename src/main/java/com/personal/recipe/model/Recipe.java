@@ -1,5 +1,7 @@
 package com.personal.recipe.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.Duration;
 import java.util.HashSet;
@@ -10,23 +12,25 @@ import java.util.Set;
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long recipe_id;
+    private Long id;
     private String name;
-    
+
     @ManyToOne
     private Course course;
-    
+
     private Duration prepTime;
     private Duration cookTime;
     private Integer serving;
+
+
     private String url;
-    
+
     @Enumerated(value = EnumType.STRING)
     private Rating rating;
-    
+
     @Lob
     private String description;
-    
+
     //recipe -> element
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Element> elements= new HashSet<>();
@@ -34,21 +38,21 @@ public class Recipe {
     //recipe -> steps
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Step> steps = new HashSet<>();;
-    
+
     //recipe -> category
     @ManyToMany
     @JoinTable(name="recipe_category",
-            joinColumns = @JoinColumn(name ="recipe_id"),
-            inverseJoinColumns = @JoinColumn(name="category_id"))
+            joinColumns = @JoinColumn(name ="recipe.id"),
+            inverseJoinColumns = @JoinColumn(name="category.id"))
     private Set<Category> categories = new HashSet<>();
 
 
-    public Long getRecipe_id() {
-        return recipe_id;
+    public Long getId() {
+        return id;
     }
 
-    public void setRecipe_id(Long recipe_id) {
-        this.recipe_id = recipe_id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -129,5 +133,13 @@ public class Recipe {
 
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

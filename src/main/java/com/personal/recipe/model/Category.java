@@ -1,5 +1,7 @@
 package com.personal.recipe.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -7,18 +9,19 @@ import java.util.Set;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long category_id;
+    private Long id;
     private String name;
 
     @ManyToMany(mappedBy = "categories")
+    @JsonIgnore
     private Set<Recipe> recipes;
 
-    public Long getCategoryId() {
-        return category_id;
+    public Long getId() {
+        return id;
     }
 
-    public void setCategoryId(Long category_id) {
-        this.category_id = category_id;
+    public void setId(Long category_id) {
+        this.id = category_id;
     }
 
     public String getName() {
