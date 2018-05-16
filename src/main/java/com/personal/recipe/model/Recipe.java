@@ -13,12 +13,13 @@ public class Recipe {
     private Long recipe_id;
     private String name;
     
-    @Enumerated(value = EnumType.STRING)
+    @ManyToOne
     private Course course;
     
     private Duration prepTime;
     private Duration cookTime;
     private Integer serving;
+    private String url;
     
     @Enumerated(value = EnumType.STRING)
     private Rating rating;

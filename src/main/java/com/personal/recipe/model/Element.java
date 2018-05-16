@@ -17,7 +17,7 @@ public class Element {
     @ManyToOne
     private Ingredient ingredient;
 
-    private Integer number;
+    private Double number;
     
     @ManyToOne
     private UnitOfMeasure unitOfMeasure;
@@ -41,11 +41,11 @@ public class Element {
         this.ingredient = ingredient;
     }
 
-    public Integer getNumber() {
+    public Double getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(Double number) {
         this.number = number;
     }
 
