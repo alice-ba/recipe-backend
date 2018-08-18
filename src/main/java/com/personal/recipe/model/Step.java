@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 
 @Entity
-public class Step {
+public class Step implements Comparable <Step>{
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,4 +49,10 @@ public class Step {
 	public void setRecipe(Recipe recipe) {
 		this.recipe = recipe;
 	}
+	
+	 @Override
+		public int compareTo(Step s) {
+			return number.compareTo(s.getNumber());
+	}
+
 }

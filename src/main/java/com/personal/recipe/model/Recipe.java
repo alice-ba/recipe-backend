@@ -6,10 +6,12 @@ import javax.persistence.*;
 import java.time.Duration;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 
 @Entity
-public class Recipe {
+public class Recipe{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -37,8 +39,9 @@ public class Recipe {
 
     //recipe -> steps
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Step> steps = new HashSet<>();;
-
+    @javax.persistence.OrderBy("number")
+    private SortedSet<Step> steps = new TreeSet<Step>();
+   
     //recipe -> category
     @ManyToMany
     @JoinTable(name="recipe_category",
@@ -119,14 +122,15 @@ public class Recipe {
         this.elements = elements;
     }
 
-    public Set<Step> getSteps() {
+    public SortedSet<Step> getSteps() {
         return steps;
     }
 
-    public void setSteps(Set<Step> steps) {
+    public void setSteps(SortedSet<Step> steps) {
         this.steps = steps;
     }
-
+    
+   
     public Set<Category> getCategories() {
         return categories;
     }
